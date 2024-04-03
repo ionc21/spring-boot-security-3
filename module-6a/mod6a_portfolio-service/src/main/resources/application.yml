@@ -1,0 +1,38 @@
+spring:
+  profiles:
+    active: "dev"
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        security: DEBUG
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  application:
+    name: portfolio-service
+  security:
+    oauth2:
+      resource-server:
+        jwt:
+          issuer-uri: http://localhost:8090/realms/crypto-portfolio
+          audiences: portfolio-service
+      client:
+        registration:
+          pricing-service:
+            provider: keycloak
+            client-id: pricing-service
+            client-secret: tPwIwv0WGaJtXtwE3go6YSyZ4hqYhRnj
+            authorization-grant-type: client_credentials
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8090/realms/crypto-portfolio
+server:
+  port: 8181
+
+services:
+  pricing-service:
+    uri: "http://localhost:8183"

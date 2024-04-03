@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: pricing-service
+  security:
+    oauth2:
+      resource-server:
+        jwt:
+          issuer-uri: http://localhost:8090/realms/crypto-portfolio
+          audiences: pricing-service
+server:
+  port: 8183

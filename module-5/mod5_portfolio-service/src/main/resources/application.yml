@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active: "dev"
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        security: DEBUG
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  application:
+    name: portfolio-service
+  security:
+    oauth2:
+      resource-server:
+        jwt:
+          issuer-uri: http://localhost:8090/realms/crypto-portfolio
+server:
+  port: 8181

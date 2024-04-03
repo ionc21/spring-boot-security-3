@@ -1,0 +1,23 @@
+spring:
+  security:
+    user:
+      name: "victoria"
+      password: "password"
+    oauth2:
+      authorization-server:
+        client:
+          portfolio-client:
+            registration:
+              client-id: "portfolio-client"
+              client-secret: "{noop}secret"
+              client-authentication-methods:
+                - "client_secret_basic"
+              authorization-grant-types:
+                - "authorization_code"
+              scopes:
+                - "openid"
+                - "profile"
+              redirect-uris:
+                - "https://oauth.pstmn.io/v1/browser-callback"
+server:
+  port: 8091

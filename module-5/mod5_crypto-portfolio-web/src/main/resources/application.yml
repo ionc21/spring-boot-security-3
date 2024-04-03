@@ -1,0 +1,25 @@
+api:
+  portfolio-service: http://localhost:8181
+  support-service: http://localhost:8182
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          crypto-portfolio:
+            client-id: crypto-portfolio
+            client-secret: B6yisqsijobcbxaKQDdSqtUu2eU2Ox7Z
+            client-name: Crypto Portfolio
+            scope: openid,profile,email,offline_access
+            redirect-uri: http://localhost:8095/login/oauth2/code/crypto-portfolio
+            provider: crypto-provider           
+        provider:
+          crypto-provider:
+            issuer-uri: http://localhost:8090/realms/crypto-portfolio
+server:
+  port: 8095
+services:
+  portfolio-service:
+    uri: "http://localhost:8181"
+  support-service:
+    uri: "http://localhost:8182"

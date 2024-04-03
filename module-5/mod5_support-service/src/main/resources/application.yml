@@ -1,0 +1,19 @@
+server:
+   port: 8182
+spring:
+  application:
+    name: support-service
+  security:
+    oauth2:
+      resource-server:
+        jwt:
+          issuer-uri: http://localhost:8090/realms/crypto-portfolio
+  h2:
+    console:
+      enabled: false
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.springframework.security: INFO

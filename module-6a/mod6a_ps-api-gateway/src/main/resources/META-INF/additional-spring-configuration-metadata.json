@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "portfolio-service.oauth.client-id",
+      "type": "java.lang.String",
+      "description": "Description for portfolio-service.oauth.client-id."
+    },
+    {
+      "name": "portfolio-service.oauth.secret",
+      "type": "java.lang.String",
+      "description": "Description for portfolio-service.oauth.secret."
+    }
+  ] }

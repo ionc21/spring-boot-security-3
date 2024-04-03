@@ -1,0 +1,44 @@
+server:
+  port: 8188
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: portfolio
+          uri: http://localhost:8181
+          predicates:
+            - Path=/portfolio/**
+          filters:
+            - TokenExchange
+        - id: support
+          uri: http://localhost:8182
+          predicates:
+            - Path=/support/**
+          filters:
+            - TokenExchange
+  security:
+    oauth2:
+      resource-server:
+        jwt:
+          issuer-uri: http://localhost:8090/realms/crypto-portfolio
+
+
+
+
+
+
+
+
+
+
+
+
+
+ #   filters:
+  #          - name: TokenExchange
+
+portfolio-service:
+  oauth:
+    client-id: crypto-web-client
+    secret: rYqX2eIGRI5xBdQMfjSq7Pv6mTKS07w4
+
